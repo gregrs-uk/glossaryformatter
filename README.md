@@ -24,24 +24,69 @@ The `glossary_example.xlsx` file is an example Excel file containing some catego
 
 Print the glossary from the example Excel file to stdout with minimal formatting:
 
-	./minimal.py glossary_example.xlsx
+```
+> ./minimal.py glossary_example.xlsx
+
+GLOSSARY
+========
+
+Articulation
+
+staccato - Played in a detached fashion
+legato - Played in a smooth fashion
+
+Melody
+
+Ornamentation
+
+trill - A type of ornament where there is rapid alternation between the main note and the note above it
+mordent - A type of ornament where the main note is played, followed by the note above (upper mordent) or below (lower mordent) the main note, then the main note again
+
+Other
+
+sequence - Repetition of a melody (or an harmonic progression) but at different pitch level(s) rather than at the same pitch
+```
+
+Print the glossary from the example Excel file to stdout with Markdown formatting:
+
+```
+> ./markdown.py glossary_example.xlsx
+
+# Glossary
+
+## Articulation
+
+* **staccato** - Played in a detached fashion
+* **legato** - Played in a smooth fashion
+
+## Melody
+
+### Ornamentation
+
+* **trill** - A type of ornament where there is rapid alternation between the main note and the note above it
+* **mordent** - A type of ornament where the main note is played, followed by the note above (upper mordent) or below (lower mordent) the main note, then the main note again
+
+### Other
+
+* **sequence** - Repetition of a melody (or an harmonic progression) but at different pitch level(s) rather than at the same pitch
+```
 
 Save the glossary from the example Excel file to a file with Markdown formatting:
 
-	./markdown.py glossary_example.xlsx > glossary.md
+	> ./markdown.py glossary_example.xlsx > glossary.md
 
 Pipe the Markdown to [Pandoc](http://pandoc.org) to create an HTML file:
 
-	./markdown.py glossary_example.xlsx | pandoc -o glossary.html
+	> ./markdown.py glossary_example.xlsx | pandoc -o glossary.html
 
 Pipe the Markdown to [Pandoc](http://pandoc.org) to create a Word document:
 
-	./markdown.py glossary_example.xlsx | pandoc -o glossary.docx
+	> ./markdown.py glossary_example.xlsx | pandoc -o glossary.docx
 
-Create a two-column PDF from the example Excel file (including references) using [LaTeX](http://www.latex-project.org):
+Create a [two-column PDF](example.pdf) from the example Excel file (including references) using [LaTeX](http://www.latex-project.org):
 
-	./latex.py glossary_example.xlsx > glossary.ltx
-	pdflatex glossary.ltx
+	> ./latex.py glossary_example.xlsx > glossary.ltx
+	> pdflatex glossary.ltx
 
 ## Contributing
 
