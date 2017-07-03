@@ -14,6 +14,9 @@ elif len(sys.argv) > 2:
 
 gf.set_output_encoding()
 
+# list of headers for reference columns
+ref_cols = ['Piece 1', 'Piece 2']
+
 # beginning of LaTeX file
 
 print r"""\documentclass[10pt,a4paper]{article}
@@ -46,10 +49,19 @@ print r"""\documentclass[10pt,a4paper]{article}
 \begin{document}
 
 \section{Glossary}
+"""
 
-\textsuperscript{1} Piece 1\\[3pt]
-\textsuperscript{2} Piece 2
 
+# reference legend
+
+n = 1
+for this_piece in ref_cols:
+    print r'\textsuperscript{' + str(n) + '} ' + this_piece
+    if n != len(ref_cols):
+        print r'\\[3pt]'
+    n += 1
+
+print r""" 
 \vspace{9pt}
 \separator
 
@@ -72,7 +84,7 @@ gf.print_glossary(the_terms,
                   term_suffix = '}',
                   def_prefix = '\definition{',
                   def_suffix = '}',
-                  ref_cols = ['Piece 1', 'Piece 2'],
+                  ref_cols = ref_cols,
                   refs_prefix = '\\refs{',
                   refs_separator = ',',
                   refs_suffix = '}')
