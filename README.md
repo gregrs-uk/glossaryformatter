@@ -8,7 +8,7 @@ A collection of [Python](https://www.python.org) scripts designed to create a pr
 * Terms can also be referenced e.g. to a particular piece of music or chapter of a textbook
 * Scripts are included for minimal, Markdown or [LaTeX](http://www.latex-project.org) formatting and can be customised to suit your needs
 * The Markdown output can be converted to an HTML web page or Word document using [Pandoc](http://pandoc.org) 
-* Tested using Python 2.7 on Mac OS X but should work on Linux and Windows too
+* Tested using Python 3.8.2 on Mac OS X but should work on Linux and Windows too
 
 ## Usage
 

@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 # Print a LaTeX source file of the glossary from the xlsx file
 
 import glossaryformatter as gf
@@ -19,7 +17,7 @@ ref_cols = ['Piece 1', 'Piece 2']
 
 # beginning of LaTeX file
 
-print r"""\documentclass[10pt,a4paper]{article}
+print(r"""\documentclass[10pt,a4paper]{article}
 
 \usepackage[margin=2cm]{geometry}
 \usepackage{charter}
@@ -49,24 +47,24 @@ print r"""\documentclass[10pt,a4paper]{article}
 \begin{document}
 
 \section{Glossary}
-"""
+""")
 
 
 # reference legend
 
 n = 1
 for this_piece in ref_cols:
-    print r'\textsuperscript{' + str(n) + '} ' + this_piece
+    print(r'\textsuperscript{' + str(n) + '} ' + this_piece)
     if n != len(ref_cols):
-        print r'\\[3pt]'
+        print(r'\\[3pt]')
     n += 1
 
-print r""" 
+print(r""" 
 \vspace{9pt}
 \separator
 
 \begin{multicols}{2}
-"""
+""")
 
 
 # the main chunk of the glossary
@@ -92,6 +90,6 @@ gf.print_glossary(the_terms,
 
 # end of LaTeX file
 
-print r"""\end{multicols}
+print(r"""\end{multicols}
 
-\end{document}"""
+\end{document}""")

@@ -122,31 +122,31 @@ def print_glossary(terms, term_col='Term', def_col='Definition',
         # if new category
         if this_term[cat_col] != previous_cat:
             if term_num != 1:
-                print end_terms
-            print cat_prefix + this_term[cat_col].strip() + cat_suffix
+                print(end_terms)
+            print(cat_prefix + this_term[cat_col].strip() + cat_suffix)
             # if subcategories column supplied, print it (unless blank)
             if subcat_col:
                 if this_term[subcat_col]:
-                    print (subcat_prefix + this_term[subcat_col].strip() +
-                           subcat_suffix)
+                    print((subcat_prefix + this_term[subcat_col].strip() +
+                           subcat_suffix))
             if begin_terms:
-                print begin_terms
+                print(begin_terms)
 
         # if same category as previous term
         else:
             # if subcategories column supplied and subcategory is new
             if subcat_col and this_term[subcat_col] != previous_subcat:
                 if term_num != 1:
-                    print end_terms
+                    print(end_terms)
                 # if subcategory isn't empty
                 if this_term[subcat_col]:
-                    print (subcat_prefix + this_term[subcat_col].strip() +
-                           subcat_suffix)
+                    print((subcat_prefix + this_term[subcat_col].strip() +
+                           subcat_suffix))
                 else:
-                    print (subcat_prefix + empty_subcat_name +
-                           subcat_suffix)
+                    print((subcat_prefix + empty_subcat_name +
+                           subcat_suffix))
                 if begin_terms:
-                    print begin_terms
+                    print(begin_terms)
 
         # if reference columns supplied
         if len(ref_cols):
@@ -157,15 +157,15 @@ def print_glossary(terms, term_col='Term', def_col='Definition',
                 # get string of references separated by separator
                 ref_str = refs_separator.join(
                     '{}'.format(num) for num in refs)
-                print (term_prefix + this_term[term_col].strip() + term_suffix +
+                print((term_prefix + this_term[term_col].strip() + term_suffix +
                        def_prefix + this_term[def_col].strip() + def_suffix +
-                       refs_prefix + ref_str + refs_suffix)
+                       refs_prefix + ref_str + refs_suffix))
             else:
                 no_refs_to_print = True
         # if no reference columns supplied or they're empty for this term
         if not len(ref_cols) or no_refs_to_print:
-            print (term_prefix + this_term[term_col].strip() + term_suffix +
-                   def_prefix + this_term[def_col].strip() + def_suffix)
+            print((term_prefix + this_term[term_col].strip() + term_suffix +
+                   def_prefix + this_term[def_col].strip() + def_suffix))
 
         previous_cat = this_term[cat_col]
         if subcat_col:
@@ -173,4 +173,4 @@ def print_glossary(terms, term_col='Term', def_col='Definition',
         no_refs_to_print = False
         term_num += 1
 
-    print end_terms
+    print(end_terms)
